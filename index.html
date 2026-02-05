@@ -1,10 +1,5 @@
-               WEB MODO DEMO 
+              WEB MODO DEMO 
 **** CIBORG 347 LANDIGN PAGE Y WEB DESINGS. ****
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="es-AR">
 <head>
@@ -32,20 +27,27 @@
   <style>
     :root{
       --bg:#070712;
-      --border: rgba(255,255,255,.14);
       --txt:#f4f3ff;
-      --muted: rgba(244,243,255,.72);
-      --muted2: rgba(244,243,255,.55);
+      --muted: rgba(244,243,255,.78);
+      --muted2: rgba(244,243,255,.62);
+
       --a:#9b7bff;
       --b:#6b4cff;
       --c:#ff5bd6;
       --ok:#31d0aa;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
+
+      --shadow: 0 18px 60px rgba(0,0,0,.48);
       --radius: 18px;
       --max: 1120px;
 
-      --hero-img: url("https://iili.io/fDm5Uhv.md.png");
       --overlay-img: url("https://iili.io/fDmrgEv.md.png");
+      --hero-img: url("https://iili.io/fDm5Uhv.md.png");
+
+      /* CONTRASTE DE PANELES (subí/bajá si querés) */
+      --panel-bg: rgba(10,10,22,.56);      /* fondo del panel (más sólido) */
+      --panel-bg-2: rgba(255,255,255,.06); /* brillo leve */
+      --panel-border: rgba(255,255,255,.18);
+      --panel-inner: rgba(255,255,255,.10);
     }
 
     *{box-sizing:border-box}
@@ -64,22 +66,22 @@
       position:relative;
     }
 
-    /* Overlay nítido, bien encuadrado en PC y móviles (sin perder calidad) */
+    /* OVERLAY nítido */
     body::before{
       content:"";
       position:fixed;
       inset:0;
       background-image: var(--overlay-img);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      opacity: .40;              /* MÁS presencia -> menos “opaco” */
-      filter: saturate(1.15) contrast(1.12);
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position:center;
+      opacity:.40;
+      filter:saturate(1.12) contrast(1.10);
       pointer-events:none;
       z-index:-2;
       transform: translateZ(0);
     }
-    /* Capa de luz suave para que todo se lea y NO se vea apagado */
+    /* Capa de luz + oscurecido suave para legibilidad */
     body::after{
       content:"";
       position:fixed;
@@ -88,7 +90,7 @@
         radial-gradient(1000px 700px at 18% 14%, rgba(155,123,255,.22), transparent 62%),
         radial-gradient(900px 680px at 85% 26%, rgba(255,91,214,.18), transparent 65%),
         radial-gradient(900px 760px at 50% 118%, rgba(49,208,170,.12), transparent 65%),
-        linear-gradient(180deg, rgba(7,7,18,.20), rgba(7,7,18,.35));
+        linear-gradient(180deg, rgba(7,7,18,.22), rgba(7,7,18,.44));
       pointer-events:none;
       z-index:-1;
     }
@@ -99,8 +101,8 @@
     .topbar{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(7,7,18,.58), rgba(7,7,18,.22));
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(to bottom, rgba(7,7,18,.62), rgba(7,7,18,.26));
+      border-bottom: 1px solid rgba(255,255,255,.10);
     }
     .topbar .inner{
       max-width:var(--max); margin:0 auto; padding: 14px 16px;
@@ -108,20 +110,15 @@
     }
 
     .brand{display:flex; align-items:center; gap:10px; min-width: 240px;}
-
-    /* LOGO en header usando tu imagen */
     .logoImg{
-      width:44px;
-      height:44px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(7,7,18,.22);
-      box-shadow: 0 12px 36px rgba(155,123,255,.18);
+      width:44px; height:44px; border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(7,7,18,.20);
+      box-shadow: 0 12px 36px rgba(155,123,255,.20);
       object-fit: cover;
       object-position: center;
       display:block;
     }
-
     .brand h1{margin:0; font-size: 14px; line-height:1.1; letter-spacing:.2px;}
     .brand p{margin:2px 0 0; font-size:12px; color:var(--muted2)}
 
@@ -129,19 +126,19 @@
     .chip{
       padding: 9px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color: rgba(244,243,255,.78);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      color: rgba(244,243,255,.86);
       font-size: 12px;
       transition: transform .18s ease, background .18s ease, border-color .18s ease;
       cursor:pointer;
       user-select:none;
       display:inline-flex; align-items:center; gap:8px;
     }
-    .chip:hover{transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.20)}
+    .chip:hover{transform: translateY(-1px); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.22)}
     .chip.primary{
-      background: linear-gradient(135deg, rgba(155,123,255,.42), rgba(255,91,214,.30));
-      border-color: rgba(255,255,255,.20);
+      background: linear-gradient(135deg, rgba(155,123,255,.48), rgba(255,91,214,.34));
+      border-color: rgba(255,255,255,.22);
       color: var(--txt);
       box-shadow: 0 16px 48px rgba(0,0,0,.22);
     }
@@ -154,21 +151,33 @@
       align-items: stretch;
     }
 
-    .panel{
-      border: 1px solid rgba(255,255,255,.12);
-      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
+    /* PANEL PRINCIPAL + SECCIONES (más contraste) */
+    .panel,
+    .section,
+    .card,
+    .feature,
+    .step,
+    .quote,
+    details,
+    .contactCard{
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
+      border: 1px solid var(--panel-border);
+      background: linear-gradient(180deg, var(--panel-bg), rgba(10,10,22,.44));
+      box-shadow:
+        var(--shadow),
+        inset 0 1px 0 var(--panel-inner);
+      backdrop-filter: blur(10px) saturate(1.15);
+      -webkit-backdrop-filter: blur(10px) saturate(1.15);
     }
+
+    .panel{overflow:hidden; position:relative}
     .panel:before{
       content:"";
       position:absolute; inset:-2px;
       background:
-        radial-gradient(700px 260px at 12% 0%, rgba(155,123,255,.26), transparent 70%),
-        radial-gradient(600px 240px at 90% 18%, rgba(255,91,214,.20), transparent 70%),
-        radial-gradient(500px 240px at 70% 105%, rgba(49,208,170,.12), transparent 75%);
+        radial-gradient(700px 260px at 12% 0%, rgba(155,123,255,.22), transparent 70%),
+        radial-gradient(600px 240px at 90% 18%, rgba(255,91,214,.18), transparent 70%),
+        radial-gradient(500px 240px at 70% 105%, rgba(49,208,170,.10), transparent 75%);
       pointer-events:none;
       opacity:1;
     }
@@ -196,20 +205,20 @@
       height:auto;
       display:block;
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(7,7,18,.18);
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(7,7,18,.16);
       box-shadow: 0 26px 78px rgba(0,0,0,.52);
-      filter: drop-shadow(0 14px 40px rgba(155,123,255,.20));
+      filter: drop-shadow(0 14px 40px rgba(155,123,255,.22));
     }
 
     .kicker{
       display:inline-flex; align-items:center; gap:10px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.16);
       width: fit-content;
-      color: rgba(244,243,255,.80);
+      color: rgba(244,243,255,.88);
       font-size: 12px;
     }
     .dot{
@@ -217,6 +226,7 @@
       background: linear-gradient(135deg, var(--a), var(--c));
       box-shadow: 0 0 0 4px rgba(155,123,255,.18);
     }
+
     .title{
       margin: 8px 0 0;
       font-size: clamp(28px, 4vw, 46px);
@@ -226,17 +236,17 @@
     }
     .subtitle{
       margin: 10px 0 0;
-      color: rgba(244,243,255,.78);
+      color: var(--muted);
       font-size: 15px;
       line-height: 1.55;
       max-width: 62ch;
-      text-shadow: 0 10px 26px rgba(0,0,0,.35);
+      text-shadow: 0 10px 26px rgba(0,0,0,.32);
     }
 
     .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px}
     .btn{
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
       color: var(--txt);
       padding: 12px 14px;
       border-radius: 14px;
@@ -247,28 +257,28 @@
       cursor:pointer;
       user-select:none;
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22)}
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.24)}
     .btn.whats{
-      background: linear-gradient(135deg, rgba(49,208,170,.26), rgba(155,123,255,.18));
-      border-color: rgba(49,208,170,.28);
+      background: linear-gradient(135deg, rgba(49,208,170,.30), rgba(155,123,255,.22));
+      border-color: rgba(49,208,170,.32);
     }
     .btn.ig{
-      background: linear-gradient(135deg, rgba(255,91,214,.26), rgba(155,123,255,.20));
-      border-color: rgba(255,91,214,.26);
+      background: linear-gradient(135deg, rgba(255,91,214,.30), rgba(155,123,255,.22));
+      border-color: rgba(255,91,214,.30);
     }
 
     .metaRow{
       display:flex; gap:10px; flex-wrap:wrap;
       margin-top: 10px;
-      color: rgba(244,243,255,.62);
+      color: rgba(244,243,255,.66);
       font-size: 12px;
     }
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       padding: 8px 10px;
-      border: 1px solid rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.12);
       border-radius: 999px;
-      background: rgba(255,255,255,.05);
+      background: rgba(255,255,255,.07);
     }
     .icon{width: 16px; height: 16px; display:inline-block;}
 
@@ -281,22 +291,19 @@
       gap: 12px;
       min-height: 340px;
     }
-    .card{
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      padding: 14px;
-    }
+
+    .card{padding: 14px}
     .card h3{margin:0; font-size: 14px}
-    .card p{margin:8px 0 0; color: rgba(244,243,255,.74); font-size: 13px; line-height:1.5}
+    .card p{margin:8px 0 0; color: rgba(244,243,255,.78); font-size: 13px; line-height:1.5}
     .mini{display:grid; grid-template-columns: 1fr; gap:10px;}
+
     .list{margin: 10px 0 0; padding:0; list-style:none; display:grid; gap: 10px;}
     .li{
       display:flex; gap:10px; align-items:flex-start;
       padding: 12px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
     }
     .check{
       width: 18px; height: 18px; flex:0 0 18px;
@@ -315,105 +322,75 @@
       transform: rotate(-45deg);
     }
     .li strong{display:block; font-size: 13px}
-    .li span{display:block; margin-top:3px; color: rgba(244,243,255,.62); font-size: 12px; line-height:1.45}
+    .li span{display:block; margin-top:3px; color: rgba(244,243,255,.64); font-size: 12px; line-height:1.45}
 
     section{scroll-margin-top: 84px}
     .section{
       margin-top: 18px;
       padding: 18px;
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
       position:relative;
       overflow:hidden;
     }
     .section h2{margin:0; font-size: 18px; letter-spacing: -0.2px;}
     .section p.lead{
       margin: 8px 0 0;
-      color: rgba(244,243,255,.76);
+      color: rgba(244,243,255,.80);
       font-size: 14px;
       line-height: 1.6;
       max-width: 78ch;
+      text-shadow: 0 10px 24px rgba(0,0,0,.25);
     }
 
     .cols{margin-top: 14px; display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px;}
-    .feature{
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      min-height: 120px;
-    }
+    .feature{padding: 14px; min-height: 120px;}
     .feature h3{margin:0; font-size: 14px}
-    .feature p{margin:8px 0 0; color: rgba(244,243,255,.74); font-size: 13px; line-height:1.5}
+    .feature p{margin:8px 0 0; color: rgba(244,243,255,.78); font-size: 13px; line-height:1.5}
 
     .steps{margin-top: 14px; display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px;}
-    .step{
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      padding: 14px;
-      position:relative;
-      overflow:hidden;
-    }
+    .step{padding: 14px; position:relative; overflow:hidden;}
     .num{
       font-weight: 800;
       font-size: 12px;
       letter-spacing: .8px;
-      color: rgba(244,243,255,.74);
+      color: rgba(244,243,255,.78);
       display:inline-flex;
       align-items:center;
       gap:8px;
       padding: 7px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
     }
     .step h3{margin:10px 0 0; font-size: 14px}
-    .step p{margin:8px 0 0; color: rgba(244,243,255,.74); font-size: 13px; line-height:1.55}
+    .step p{margin:8px 0 0; color: rgba(244,243,255,.78); font-size: 13px; line-height:1.55}
 
     .testis{margin-top: 14px; display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px;}
-    .quote{
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      padding: 14px;
-    }
-    .quote p{margin:0; color: rgba(244,243,255,.74); font-size: 13px; line-height:1.55}
-    .quote .who{margin-top: 10px; font-size: 12px; color: rgba(244,243,255,.62)}
+    .quote{padding: 14px;}
+    .quote p{margin:0; color: rgba(244,243,255,.78); font-size: 13px; line-height:1.55}
+    .quote .who{margin-top: 10px; font-size: 12px; color: rgba(244,243,255,.64)}
 
     .faq{margin-top: 14px; display:grid; grid-template-columns: 1fr 1fr; gap: 12px;}
-    details{
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      padding: 12px 14px;
-    }
+    details{padding: 12px 14px;}
     summary{
       cursor:pointer;
       font-weight: 700;
       font-size: 13px;
-      color: rgba(244,243,255,.92);
+      color: rgba(244,243,255,.94);
       list-style:none;
       display:flex; align-items:center; justify-content:space-between; gap: 10px;
     }
     summary::-webkit-details-marker{display:none}
-    details p{margin:10px 0 0; color: rgba(244,243,255,.74); font-size: 13px; line-height: 1.55}
+    details p{margin:10px 0 0; color: rgba(244,243,255,.78); font-size: 13px; line-height: 1.55}
 
     .contactGrid{margin-top: 14px; display:grid; grid-template-columns: 1.2fr .8fr; gap: 12px;}
-    .contactCard{
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      padding: 14px;
-    }
+    .contactCard{padding: 14px;}
     .field{display:flex; flex-direction:column; gap:6px; margin-top: 10px;}
-    label{font-size:12px; color: rgba(244,243,255,.62)}
+    label{font-size:12px; color: rgba(244,243,255,.70)}
     input, textarea{
       width:100%;
       padding: 12px 12px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.14);
       background: rgba(7,7,18,.22);
       color: var(--txt);
       outline:none;
@@ -421,7 +398,7 @@
     }
     textarea{min-height: 110px; resize: vertical}
     .sendRow{display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px}
-    .hint{margin-top: 10px; font-size: 12px; color: rgba(244,243,255,.60); line-height:1.5}
+    .hint{margin-top: 10px; font-size: 12px; color: rgba(244,243,255,.64); line-height:1.5}
 
     .fab{
       position:fixed;
@@ -434,26 +411,26 @@
       width: 52px; height: 52px;
       border-radius: 18px;
       display:grid; place-items:center;
-      border: 1px solid rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.20);
       box-shadow: 0 18px 50px rgba(0,0,0,.42);
       backdrop-filter: blur(10px);
-      background: rgba(255,255,255,.07);
+      background: rgba(255,255,255,.10);
       transform: translateZ(0);
       transition: transform .18s ease;
     }
     .fab a:hover{transform: translateY(-2px)}
-    .fab .w{background: linear-gradient(135deg, rgba(49,208,170,.30), rgba(7,7,18,.18)); border-color: rgba(49,208,170,.30)}
-    .fab .i{background: linear-gradient(135deg, rgba(255,91,214,.30), rgba(7,7,18,.18)); border-color: rgba(255,91,214,.30)}
+    .fab .w{background: linear-gradient(135deg, rgba(49,208,170,.32), rgba(7,7,18,.18)); border-color: rgba(49,208,170,.34)}
+    .fab .i{background: linear-gradient(135deg, rgba(255,91,214,.32), rgba(7,7,18,.18)); border-color: rgba(255,91,214,.32)}
     .fab svg{width:22px; height:22px}
 
     footer{
       margin-top: 22px;
       padding: 18px 0 0;
-      color: rgba(244,243,255,.58);
+      color: rgba(244,243,255,.60);
       font-size: 12px;
       text-align:center;
     }
-    footer a{color: rgba(244,243,255,.82); text-decoration: underline; text-decoration-color: rgba(244,243,255,.25)}
+    footer a{color: rgba(244,243,255,.84); text-decoration: underline; text-decoration-color: rgba(244,243,255,.25)}
     footer a:hover{text-decoration-color: rgba(244,243,255,.6)}
 
     @media (max-width: 920px){
@@ -467,10 +444,7 @@
       nav{display:none}
       .brand{min-width: unset}
       .heroArt img{border-radius: 16px; width: min(640px, 100%);}
-      body::before{
-        opacity: .42;
-        background-position: center top; /* encuadre más estable en móviles */
-      }
+      body::before{opacity:.42; background-position: center top;}
       .logoImg{width:40px; height:40px; border-radius: 14px;}
     }
   </style>
@@ -731,7 +705,7 @@
 
         <div class="contactCard">
           <h3 style="margin:0; font-size:14px;">Links directos</h3>
-          <p style="margin:8px 0 0; color: rgba(244,243,255,.74); font-size:13px; line-height:1.55;">
+          <p style="margin:8px 0 0; color: rgba(244,243,255,.78); font-size:13px; line-height:1.55;">
             Si preferís, tocá directo:
           </p>
 
