@@ -1,0 +1,809 @@
+```html
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>María Julia Ugarte Malnis | Registros Akáshicos • Tarot • Sesiones</title>
+  <meta name="description" content="Sesiones de Registros Akáshicos y Tarot. Acompañamiento personalizado. Reservá tu turno por WhatsApp o Instagram." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="María Julia Ugarte Malnis | Registros Akáshicos • Tarot" />
+  <meta property="og:description" content="Sesiones de Registros Akáshicos y Tarot. Acompañamiento personalizado. Reservá tu turno." />
+  <meta property="og:type" content="website" />
+  <!-- Reemplazá por una imagen tuya (cuadrada ideal) -->
+  <meta property="og:image" content="https://images.unsplash.com/photo-1528712306091-ed0763094c98?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:locale" content="es_AR" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="María Julia Ugarte Malnis | Registros Akáshicos • Tarot" />
+  <meta name="twitter:description" content="Sesiones de Registros Akáshicos y Tarot. Acompañamiento personalizado. Reservá tu turno." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1528712306091-ed0763094c98?auto=format&fit=crop&w=1200&q=80" />
+
+  <meta name="theme-color" content="#6b4cff" />
+
+  <style>
+    :root{
+      --bg:#070712;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.09);
+      --border: rgba(255,255,255,.14);
+      --txt:#f4f3ff;
+      --muted: rgba(244,243,255,.72);
+      --muted2: rgba(244,243,255,.55);
+      --a:#9b7bff;
+      --b:#6b4cff;
+      --c:#ff5bd6;
+      --ok:#31d0aa;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      background: radial-gradient(1200px 700px at 12% 8%, rgba(155,123,255,.22), transparent 60%),
+                  radial-gradient(900px 700px at 90% 30%, rgba(255,91,214,.18), transparent 62%),
+                  radial-gradient(800px 700px at 50% 110%, rgba(49,208,170,.10), transparent 60%),
+                  var(--bg);
+      color: var(--txt);
+      overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding: 20px 16px 80px;}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(7,7,18,.72), rgba(7,7,18,.35));
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .topbar .inner{
+      max-width:var(--max); margin:0 auto; padding: 14px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; min-width: 240px;}
+    .sigil{
+      width:38px; height:38px; border-radius: 14px;
+      background:
+        radial-gradient(14px 14px at 30% 25%, rgba(255,255,255,.65), transparent 60%),
+        linear-gradient(135deg, rgba(155,123,255,.95), rgba(255,91,214,.85));
+      box-shadow: 0 12px 36px rgba(155,123,255,.18);
+      border: 1px solid rgba(255,255,255,.18);
+      position:relative;
+    }
+    .sigil:after{
+      content:"";
+      position:absolute; inset:9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.45);
+      opacity:.75;
+    }
+    .brand h1{
+      margin:0; font-size: 14px; line-height:1.1; letter-spacing:.2px;
+    }
+    .brand p{margin:2px 0 0; font-size:12px; color:var(--muted2)}
+    nav{display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .chip{
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-size: 12px;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      cursor:pointer;
+      user-select:none;
+      display:inline-flex; align-items:center; gap:8px;
+    }
+    .chip:hover{transform: translateY(-1px); background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.18)}
+    .chip.primary{
+      background: linear-gradient(135deg, rgba(155,123,255,.35), rgba(255,91,214,.25));
+      border-color: rgba(255,255,255,.18);
+      color: var(--txt);
+      box-shadow: 0 16px 48px rgba(0,0,0,.25);
+    }
+
+    .hero{
+      padding: 36px 0 10px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .panel{
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .panel:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 220px at 18% 0%, rgba(155,123,255,.26), transparent 70%),
+                  radial-gradient(500px 220px at 90% 18%, rgba(255,91,214,.18), transparent 70%);
+      pointer-events:none;
+      opacity:.9;
+    }
+    .heroMain{
+      padding: 24px 22px;
+      min-height: 340px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap: 14px;
+      position:relative;
+      z-index:1;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      width: fit-content;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: linear-gradient(135deg, var(--a), var(--c));
+      box-shadow: 0 0 0 4px rgba(155,123,255,.15);
+    }
+    .title{
+      margin: 8px 0 0;
+      font-size: clamp(28px, 4vw, 46px);
+      letter-spacing: -0.6px;
+      line-height: 1.04;
+    }
+    .subtitle{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+      max-width: 62ch;
+    }
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px}
+    .btn{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--txt);
+      padding: 12px 14px;
+      border-radius: 14px;
+      display:inline-flex; align-items:center; gap:10px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.2)}
+    .btn.whats{
+      background: linear-gradient(135deg, rgba(49,208,170,.22), rgba(155,123,255,.16));
+      border-color: rgba(49,208,170,.25);
+    }
+    .btn.ig{
+      background: linear-gradient(135deg, rgba(255,91,214,.22), rgba(155,123,255,.18));
+      border-color: rgba(255,91,214,.22);
+    }
+    .metaRow{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 10px;
+      color: var(--muted2);
+      font-size: 12px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 10px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+    }
+    .icon{
+      width: 16px; height: 16px; display:inline-block;
+    }
+
+    .heroSide{
+      padding: 18px;
+      position:relative;
+      z-index:1;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      min-height: 340px;
+    }
+    .card{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding: 14px;
+    }
+    .card h3{margin:0; font-size: 14px}
+    .card p{margin:8px 0 0; color: var(--muted); font-size: 13px; line-height:1.5}
+    .mini{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+    .list{
+      margin: 10px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap: 10px;
+    }
+    .li{
+      display:flex; gap:10px; align-items:flex-start;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+    .check{
+      width: 18px; height: 18px; flex:0 0 18px;
+      border-radius: 7px;
+      background: linear-gradient(135deg, rgba(49,208,170,.9), rgba(155,123,255,.7));
+      box-shadow: 0 10px 30px rgba(49,208,170,.12);
+      position:relative;
+      margin-top:2px;
+    }
+    .check:after{
+      content:"";
+      position:absolute; left:5px; top:4px;
+      width:7px; height:4px;
+      border-left: 2px solid rgba(255,255,255,.9);
+      border-bottom: 2px solid rgba(255,255,255,.9);
+      transform: rotate(-45deg);
+    }
+    .li strong{display:block; font-size: 13px}
+    .li span{display:block; margin-top:3px; color: var(--muted2); font-size: 12px; line-height:1.45}
+
+    section{scroll-margin-top: 84px}
+    .section{
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      position:relative;
+      overflow:hidden;
+    }
+    .section h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+    .section p.lead{
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 78ch;
+    }
+    .cols{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+    }
+    .feature{
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      min-height: 120px;
+    }
+    .feature h3{margin:0; font-size: 14px}
+    .feature p{margin:8px 0 0; color: var(--muted); font-size: 13px; line-height:1.5}
+
+    .steps{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+    }
+    .step{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 14px;
+      position:relative;
+      overflow:hidden;
+    }
+    .num{
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: .8px;
+      color: rgba(244,243,255,.7);
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+    }
+    .step h3{margin:10px 0 0; font-size: 14px}
+    .step p{margin:8px 0 0; color: var(--muted); font-size: 13px; line-height:1.55}
+
+    .testis{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+    }
+    .quote{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 14px;
+    }
+    .quote p{margin:0; color: var(--muted); font-size: 13px; line-height:1.55}
+    .quote .who{margin-top: 10px; font-size: 12px; color: rgba(244,243,255,.78)}
+
+    .faq{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    details{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 12px 14px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight: 700;
+      font-size: 13px;
+      color: rgba(244,243,255,.9);
+      list-style:none;
+      display:flex; align-items:center; justify-content:space-between; gap: 10px;
+    }
+    summary::-webkit-details-marker{display:none}
+    details p{margin:10px 0 0; color: var(--muted); font-size: 13px; line-height: 1.55}
+
+    .contactGrid{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 12px;
+    }
+    .contactCard{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 14px;
+    }
+    .field{
+      display:flex; flex-direction:column; gap:6px; margin-top: 10px;
+    }
+    label{font-size:12px; color: var(--muted2)}
+    input, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(7,7,18,.35);
+      color: var(--txt);
+      outline:none;
+      font-size: 14px;
+    }
+    textarea{min-height: 110px; resize: vertical}
+    .sendRow{display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px}
+    .hint{margin-top: 10px; font-size: 12px; color: var(--muted2); line-height:1.5}
+
+    .fab{
+      position:fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 80;
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .fab a{
+      width: 52px; height: 52px;
+      border-radius: 18px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: 0 18px 50px rgba(0,0,0,.45);
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,.06);
+      transform: translateZ(0);
+      transition: transform .18s ease;
+    }
+    .fab a:hover{transform: translateY(-2px)}
+    .fab .w{background: linear-gradient(135deg, rgba(49,208,170,.22), rgba(7,7,18,.35)); border-color: rgba(49,208,170,.25)}
+    .fab .i{background: linear-gradient(135deg, rgba(255,91,214,.22), rgba(7,7,18,.35)); border-color: rgba(255,91,214,.22)}
+    .fab svg{width:22px; height:22px}
+
+    footer{
+      margin-top: 22px;
+      padding: 18px 0 0;
+      color: rgba(244,243,255,.55);
+      font-size: 12px;
+      text-align:center;
+    }
+    footer a{color: rgba(244,243,255,.78); text-decoration: underline; text-decoration-color: rgba(244,243,255,.25)}
+    footer a:hover{text-decoration-color: rgba(244,243,255,.6)}
+
+    @media (max-width: 920px){
+      .grid{grid-template-columns: 1fr}
+      .heroMain, .heroSide{min-height: unset}
+      .cols{grid-template-columns: 1fr}
+      .steps{grid-template-columns: 1fr}
+      .testis{grid-template-columns: 1fr}
+      .faq{grid-template-columns: 1fr}
+      .contactGrid{grid-template-columns: 1fr}
+      nav{display:none}
+      .brand{min-width: unset}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="inner">
+      <div class="brand">
+        <div class="sigil" aria-hidden="true"></div>
+        <div>
+          <h1>María Julia Ugarte Malnis</h1>
+          <p>Registros Akáshicos • Tarot • Sesiones</p>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación">
+        <a class="chip" href="#servicios">Servicios</a>
+        <a class="chip" href="#como">Cómo funciona</a>
+        <a class="chip" href="#testimonios">Testimonios</a>
+        <a class="chip" href="#faq">Preguntas</a>
+        <a class="chip primary" href="#contacto">Reservar turno</a>
+      </nav>
+
+      <a class="chip primary" href="#contacto" aria-label="Reservar turno">
+        Reservar turno
+      </a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="inicio">
+      <div class="grid">
+        <div class="panel">
+          <div class="heroMain">
+            <div>
+              <div class="kicker"><span class="dot"></span> Acompañamiento personalizado • sesiones por turno</div>
+              <h2 class="title">Un espacio para ordenar, comprender y avanzar.</h2>
+              <p class="subtitle">
+                Sesiones de <b>Registros Akáshicos</b> y <b>Tarot</b> con un enfoque claro y respetuoso.
+                Te acompaño a encontrar respuestas, bajar ruido mental y tomar decisiones con más calma.
+              </p>
+
+              <div class="ctaRow">
+                <!-- Reemplazá el número por el tuyo (formato internacional) -->
+                <a class="btn whats" id="ctaWhats" href="#" rel="noopener">
+                  <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M20.4 3.6A11.7 11.7 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.2 1.6 6L0 24l6.3-1.6a12 12 0 0 0 5.7 1.4h.1c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.6-8.3ZM12 21.7h-.1c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-3.7 1 1-3.6-.2-.4a9.8 9.8 0 0 1-1.5-5.2C1.8 6.5 6.1 2.2 11.9 2.2c2.6 0 5 .9 6.9 2.9a9.6 9.6 0 0 1 2.9 6.8c0 5.8-4.3 9.8-9.6 9.8Zm5.6-7.3c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 .9-.2.1-.4.1-.7 0-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6-.1-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.7c.2.3 2.3 3.5 5.6 4.9.8.3 1.4.5 1.9.6.8.2 1.5.2 2.1.1.6-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.1-1.3-.1-.2-.3-.2-.6-.3Z" fill="currentColor"/>
+                    </svg>
+                  </span>
+                  Reservar por WhatsApp
+                </a>
+
+                <a class="btn ig" id="ctaIg" href="#" rel="noopener">
+                  <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M7.6 2h8.8A5.6 5.6 0 0 1 22 7.6v8.8A5.6 5.6 0 0 1 16.4 22H7.6A5.6 5.6 0 0 1 2 16.4V7.6A5.6 5.6 0 0 1 7.6 2Zm8.8 2H7.6A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.7-2.6a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z" fill="currentColor"/>
+                    </svg>
+                  </span>
+                  Consultar por Instagram
+                </a>
+              </div>
+
+              <div class="metaRow">
+                <div class="pill">
+                  <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M12 22s7-4.4 7-12a7 7 0 1 0-14 0c0 7.6 7 12 7 12Z" stroke="currentColor" stroke-width="1.8"/>
+                      <path d="M12 13.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Z" stroke="currentColor" stroke-width="1.8"/>
+                    </svg>
+                  </span>
+                  Modalidad: online / por turno
+                </div>
+                <div class="pill">
+                  <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M7 3v3M17 3v3M4 8h16M6 12h4M6 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                      <path d="M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8"/>
+                    </svg>
+                  </span>
+                  Turnos: coordinamos por mensaje
+                </div>
+              </div>
+            </div>
+
+            <div class="hint">
+              <b>Nota:</b> este es un template listo para adaptar. Cambiá textos, links, imagen OG y tu número/usuario.
+            </div>
+          </div>
+        </div>
+
+        <aside class="panel">
+          <div class="heroSide">
+            <div class="card">
+              <h3>¿Qué podés traer a la sesión?</h3>
+              <p>Una situación puntual, una decisión, un bloqueo, un vínculo, o simplemente la necesidad de claridad.</p>
+              <ul class="list">
+                <li class="li">
+                  <div class="check" aria-hidden="true"></div>
+                  <div>
+                    <strong>Preguntas claras</strong>
+                    <span>Armamos juntas el foco para que la sesión sea útil y concreta.</span>
+                  </div>
+                </li>
+                <li class="li">
+                  <div class="check" aria-hidden="true"></div>
+                  <div>
+                    <strong>Devolución ordenada</strong>
+                    <span>Resumen y próximos pasos (si aplica) para que te quede todo simple.</span>
+                  </div>
+                </li>
+                <li class="li">
+                  <div class="check" aria-hidden="true"></div>
+                  <div>
+                    <strong>Enfoque respetuoso</strong>
+                    <span>Con cuidado y claridad, sin promesas vacías.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mini">
+              <div class="card">
+                <h3>Servicios destacados</h3>
+                <p>Registros Akáshicos • Tarot • Acompañamiento</p>
+              </div>
+              <div class="card">
+                <h3>Link en bio</h3>
+                <p>Un solo enlace para reservar, ver servicios y preguntas frecuentes.</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="servicios">
+      <h2>Servicios</h2>
+      <p class="lead">
+        Elegí el formato que más se ajuste a tu momento. Si no sabés cuál, me escribís y lo definimos en 2 mensajes.
+      </p>
+
+      <div class="cols">
+        <div class="feature">
+          <h3>Registros Akáshicos</h3>
+          <p>Sesión enfocada en claridad, dirección y comprensión profunda de procesos personales.</p>
+        </div>
+        <div class="feature">
+          <h3>Tarot</h3>
+          <p>Lectura orientada a situación actual + opciones de acción. Ideal para decisiones y caminos posibles.</p>
+        </div>
+        <div class="feature">
+          <h3>Acompañamiento</h3>
+          <p>Seguimiento por etapas (según disponibilidad). Para ordenar procesos y sostener cambios.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="como">
+      <h2>Cómo funciona</h2>
+      <p class="lead">
+        Simple y directo: coordinamos el turno, definimos el foco y hacemos la sesión.
+      </p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="num">01 • Consulta</div>
+          <h3>Me escribís</h3>
+          <p>Por WhatsApp o Instagram. Me contás brevemente qué te está pasando y qué querés trabajar.</p>
+        </div>
+        <div class="step">
+          <div class="num">02 • Turno</div>
+          <h3>Coordinamos horario</h3>
+          <p>Te paso disponibilidad y elegimos el momento. (Modalidad online / por turno).</p>
+        </div>
+        <div class="step">
+          <div class="num">03 • Sesión</div>
+          <h3>Trabajamos el foco</h3>
+          <p>La sesión se orienta a claridad y próximos pasos. Si querés, te dejo un resumen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="testimonios">
+      <h2>Testimonios</h2>
+      <p class="lead">Reemplazá estos textos por capturas o testimonios reales (si tenés).</p>
+
+      <div class="testis">
+        <div class="quote">
+          <p>“Me ayudó a ordenar la cabeza y volver a lo importante. Me quedé con un plan simple para seguir.”</p>
+          <div class="who">— Paciente / consultante</div>
+        </div>
+        <div class="quote">
+          <p>“Lo que más me gustó fue la claridad y el respeto. Sentí acompañamiento real, sin vueltas.”</p>
+          <div class="who">— Consultante</div>
+        </div>
+        <div class="quote">
+          <p>“Me sirvió para tomar una decisión que venía pateando. Me quedé mucho más tranquila.”</p>
+          <div class="who">— Consultante</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <h2>Preguntas frecuentes</h2>
+      <p class="lead">Dejá todo claro acá para filtrar consultas repetidas y llegar directo al turno.</p>
+
+      <div class="faq">
+        <details>
+          <summary>¿Cómo reservo? <span>+</span></summary>
+          <p>Me escribís por WhatsApp o Instagram, te paso disponibilidad y coordinamos el turno.</p>
+        </details>
+        <details>
+          <summary>¿Es presencial u online? <span>+</span></summary>
+          <p>Podemos coordinar online. Si trabajás presencial, reemplazá este texto por tu ubicación y horarios.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto dura la sesión? <span>+</span></summary>
+          <p>Depende del servicio. Podés indicar duración aproximada o aclarar que se define al coordinar.</p>
+        </details>
+        <details>
+          <summary>¿Qué tengo que preparar? <span>+</span></summary>
+          <p>Solo un lugar tranquilo y una idea de lo que querés trabajar. Si estás confundida, lo ordenamos juntas.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <h2>Reservar turno</h2>
+      <p class="lead">
+        Mandame un mensaje con: <b>1)</b> qué querés trabajar, <b>2)</b> si preferís Registros o Tarot, <b>3)</b> tu disponibilidad.
+      </p>
+
+      <div class="contactGrid">
+        <div class="contactCard">
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text" placeholder="Tu nombre" />
+          </div>
+
+          <div class="field">
+            <label for="motivo">Motivo (breve)</label>
+            <textarea id="motivo" placeholder="Ej: Quiero claridad sobre una decisión / vínculo / proceso..."></textarea>
+          </div>
+
+          <div class="sendRow">
+            <a class="btn whats" id="sendWhats" href="#" rel="noopener">Enviar por WhatsApp</a>
+            <a class="btn ig" id="sendIg" href="#" rel="noopener">Enviar por Instagram</a>
+          </div>
+
+          <div class="hint">
+            Tip: este formulario no “envía” mails: arma el mensaje y lo abre en WhatsApp/IG para que la charla siga ahí.
+          </div>
+        </div>
+
+        <div class="contactCard">
+          <h3 style="margin:0; font-size:14px;">Links directos</h3>
+          <p style="margin:8px 0 0; color: var(--muted); font-size:13px; line-height:1.55;">
+            Si preferís, tocá directo:
+          </p>
+
+          <div class="ctaRow" style="margin-top:12px">
+            <a class="btn whats" id="directWhats" href="#" rel="noopener">WhatsApp</a>
+            <a class="btn ig" id="directIg" href="#" rel="noopener">Instagram</a>
+          </div>
+
+          <div class="hint" style="margin-top:12px">
+            Recomendación: agregá tu disponibilidad y una frase tipo “solo por turno”.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Creado y diseñado por
+      <a href="https://ciborg347.onrender.com" target="_blank" rel="noopener">Ciborg 347</a>
+    </footer>
+  </main>
+
+  <!-- Floating buttons -->
+  <div class="fab" aria-label="Accesos rápidos">
+    <a class="w" id="fabWhats" href="#" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M20.4 3.6A11.7 11.7 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.2 1.6 6L0 24l6.3-1.6a12 12 0 0 0 5.7 1.4h.1c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.6-8.3ZM12 21.7h-.1c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-3.7 1 1-3.6-.2-.4a9.8 9.8 0 0 1-1.5-5.2C1.8 6.5 6.1 2.2 11.9 2.2c2.6 0 5 .9 6.9 2.9a9.6 9.6 0 0 1 2.9 6.8c0 5.8-4.3 9.8-9.6 9.8Zm5.6-7.3c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 .9-.2.1-.4.1-.7 0-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6-.1-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.7c.2.3 2.3 3.5 5.6 4.9.8.3 1.4.5 1.9.6.8.2 1.5.2 2.1.1.6-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.1-1.3-.1-.2-.3-.2-.6-.3Z" fill="currentColor"/>
+      </svg>
+    </a>
+    <a class="i" id="fabIg" href="#" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7.6 2h8.8A5.6 5.6 0 0 1 22 7.6v8.8A5.6 5.6 0 0 1 16.4 22H7.6A5.6 5.6 0 0 1 2 16.4V7.6A5.6 5.6 0 0 1 7.6 2Zm8.8 2H7.6A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.7-2.6a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z" fill="currentColor"/>
+      </svg>
+    </a>
+  </div>
+
+  <script>
+    // === CONFIGURACIÓN RÁPIDA ===
+    // 1) Poné tu número WhatsApp en formato internacional (sin +, sin espacios). Ej: 5491131234567
+    const WHATSAPP_NUMBER = "5491112345678";
+
+    // 2) Poné tu usuario de Instagram (sin @)
+    const INSTAGRAM_USER = "juliamper8";
+
+    // 3) Texto base para el primer mensaje
+    const BASE_MSG = "Hola Julia! 🙌 Quiero reservar una sesión. Te cuento brevemente:";
+
+    function enc(v){ return encodeURIComponent(v || ""); }
+
+    function whatsappLink(text){
+      return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + enc(text);
+    }
+
+    function instagramLink(){
+      // OJO: Instagram no tiene un link universal 100% confiable para abrir DM en todos los dispositivos.
+      // Este abre el perfil, desde ahí le escriben.
+      return "https://instagram.com/" + INSTAGRAM_USER;
+    }
+
+    function buildMsg(){
+      const nombre = document.getElementById("nombre").value.trim();
+      const motivo = document.getElementById("motivo").value.trim();
+      let msg = BASE_MSG;
+      if(nombre) msg += "\n\nNombre: " + nombre;
+      if(motivo) msg += "\nMotivo: " + motivo;
+      msg += "\n\n¿Tenés disponibilidad esta semana?";
+      return msg;
+    }
+
+    // Set direct links
+    const directWhats = whatsappLink(BASE_MSG + "\n\n¿Tenés disponibilidad esta semana?");
+    document.getElementById("ctaWhats").href = directWhats;
+    document.getElementById("directWhats").href = directWhats;
+    document.getElementById("fabWhats").href = directWhats;
+
+    const ig = instagramLink();
+    document.getElementById("ctaIg").href = ig;
+    document.getElementById("directIg").href = ig;
+    document.getElementById("fabIg").href = ig;
+
+    // Form actions
+    document.getElementById("sendWhats").addEventListener("click", function(e){
+      e.preventDefault();
+      window.open(whatsappLink(buildMsg()), "_blank");
+    });
+
+    document.getElementById("sendIg").addEventListener("click", function(e){
+      e.preventDefault();
+      window.open(ig, "_blank");
+    });
+
+    // Smooth anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener("click", (e)=>{
+        const id = a.getAttribute("href");
+        if(!id || id === "#") return;
+        const el = document.querySelector(id);
+        if(!el) return;
+        e.preventDefault();
+        el.scrollIntoView({behavior:"smooth", block:"start"});
+      });
+    });
+  </script>
+</body>
+</html>
+```
