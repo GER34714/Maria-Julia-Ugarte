@@ -1,5 +1,7 @@
-              WEB MODO DEMO 
-**** CIBORG 347 LANDIGN PAGE Y WEB DESINGS. ****
+WEB MODO DEMO **** CIBORG 347 LANDIGN PAGE Y WEB DESINGS. ****
+
+
+
 <!DOCTYPE html>
 <html lang="es-AR">
 <head>
@@ -43,9 +45,8 @@
       --overlay-img: url("https://iili.io/fDmrgEv.md.png");
       --hero-img: url("https://iili.io/fDm5Uhv.md.png");
 
-      /* CONTRASTE DE PANELES (subí/bajá si querés) */
-      --panel-bg: rgba(10,10,22,.56);      /* fondo del panel (más sólido) */
-      --panel-bg-2: rgba(255,255,255,.06); /* brillo leve */
+      --panel-bg: rgba(10,10,22,.56);
+      --panel-bg-2: rgba(255,255,255,.06);
       --panel-border: rgba(255,255,255,.18);
       --panel-inner: rgba(255,255,255,.10);
     }
@@ -66,7 +67,6 @@
       position:relative;
     }
 
-    /* OVERLAY nítido */
     body::before{
       content:"";
       position:fixed;
@@ -81,7 +81,6 @@
       z-index:-2;
       transform: translateZ(0);
     }
-    /* Capa de luz + oscurecido suave para legibilidad */
     body::after{
       content:"";
       position:fixed;
@@ -148,10 +147,10 @@
       display:grid;
       grid-template-columns: 1.2fr .8fr;
       gap: 18px;
-      align-items: stretch;
+      align-items: start; /* FIX: no estirar ambas columnas */
     }
+    aside.panel{align-self:start;} /* FIX: el panel derecho se auto-ajusta */
 
-    /* PANEL PRINCIPAL + SECCIONES (más contraste) */
     .panel,
     .section,
     .card,
@@ -289,7 +288,7 @@
       display:flex;
       flex-direction:column;
       gap: 12px;
-      min-height: 340px;
+      min-height: auto; /* FIX: no fuerza altura */
     }
 
     .card{padding: 14px}
@@ -435,7 +434,6 @@
 
     @media (max-width: 920px){
       .grid{grid-template-columns: 1fr}
-      .heroMain, .heroSide{min-height: unset}
       .cols{grid-template-columns: 1fr}
       .steps{grid-template-columns: 1fr}
       .testis{grid-template-columns: 1fr}
@@ -791,3 +789,4 @@
   </script>
 </body>
 </html>
+```
