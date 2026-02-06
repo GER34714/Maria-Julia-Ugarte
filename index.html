@@ -11,14 +11,14 @@
   <meta property="og:title" content="María Julia Ugarte Malnis | Mediumnidad • Tarot • Péndulo • Registros Akáshicos" />
   <meta property="og:description" content="Sesiones de Mediumnidad, Tarot, Péndulo y Registros Akáshicos. Reservá tu turno." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://iili.io/fDm5Uhv.md.png" />
+  <meta property="og:image" content="https://iili.io/fb6EjCG.md.png" />
   <meta property="og:locale" content="es_AR" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="María Julia Ugarte Malnis | Mediumnidad • Tarot • Péndulo • Registros Akáshicos" />
   <meta name="twitter:description" content="Sesiones de Mediumnidad, Tarot, Péndulo y Registros Akáshicos. Reservá tu turno." />
-  <meta name="twitter:image" content="https://iili.io/fDm5Uhv.md.png" />
+  <meta name="twitter:image" content="https://iili.io/fb6EjCG.md.png" />
 
   <meta name="theme-color" content="#6b4cff" />
 
@@ -38,8 +38,9 @@
       --radius: 18px;
       --max: 1120px;
 
-      --overlay-img: url("https://iili.io/fDmrgEv.md.png");
-      --hero-img: url("https://iili.io/fDm5Uhv.md.png");
+      /* CAMBIOS: overlay + hero */
+      --overlay-img: url("https://iili.io/fb6dwQ4.md.jpg");
+      --hero-img: url("https://iili.io/fb6EjCG.md.png");
 
       --panel-bg: rgba(10,10,22,.56);
       --panel-bg-2: rgba(255,255,255,.06);
@@ -71,8 +72,8 @@
       background-repeat:no-repeat;
       background-size:cover;
       background-position:center;
-      opacity:.40;
-      filter:saturate(1.12) contrast(1.10);
+      opacity:.18; /* CAMBIO: se ve poquito pero se ve */
+      filter:saturate(1.08) contrast(1.06);
       pointer-events:none;
       z-index:-2;
       transform: translateZ(0);
@@ -159,7 +160,7 @@
       border: 1px solid var(--panel-border);
       background: linear-gradient(180deg, var(--panel-bg), rgba(10,10,22,.44));
       box-shadow:
-        var(--shadow),
+        0 18px 60px rgba(0,0,0,.48),
         inset 0 1px 0 var(--panel-inner);
       backdrop-filter: blur(10px) saturate(1.15);
       -webkit-backdrop-filter: blur(10px) saturate(1.15);
@@ -438,7 +439,7 @@
       nav{display:none}
       .brand{min-width: unset}
       .heroArt img{border-radius: 16px; width: min(640px, 100%);}
-      body::before{opacity:.42; background-position: center top;}
+      body::before{opacity:.20; background-position: center top;} /* CAMBIO mobile */
       .logoImg{width:40px; height:40px; border-radius: 14px;}
     }
   </style>
@@ -448,7 +449,7 @@
   <header class="topbar">
     <div class="inner">
       <div class="brand">
-        <img class="logoImg" src="https://iili.io/fDm5Uhv.md.png" alt="Logo" loading="eager" decoding="async" />
+        <img class="logoImg" src="https://iili.io/fb6EjCG.md.png" alt="Logo" loading="eager" decoding="async" />
         <div>
           <h1>María Julia Ugarte Malnis</h1>
           <p>Mediumnidad • Tarot • Péndulo • Registros Akáshicos</p>
@@ -476,7 +477,7 @@
               <div class="kicker"><span class="dot"></span> Sesiones por turno • modalidad online</div>
 
               <div class="heroArt">
-                <img src="https://iili.io/fDm5Uhv.md.png" alt="Imagen principal" loading="eager" decoding="async" />
+                <img src="https://iili.io/fb6EjCG.md.png" alt="Imagen principal" loading="eager" decoding="async" />
               </div>
 
               <h2 class="title">Un espacio para ordenar, comprender y avanzar.</h2>
