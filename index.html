@@ -261,7 +261,6 @@
       border-color: rgba(255,91,214,.26);
     }
 
-    /* NUEVO: botón comprar (mismo sistema, solo otra skin) */
     .btn.buy{
       background: linear-gradient(135deg, rgba(155,123,255,.34), rgba(255,91,214,.22));
       border-color: rgba(255,255,255,.22);
@@ -377,11 +376,9 @@
 
     .testis{margin-top: 14px; display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px;}
     .quote{padding: 14px;}
-
     .quote p{margin:0; color: rgba(244,243,255,.82); font-size: 13px; line-height:1.55}
     .quote .who{margin-top: 10px; font-size: 12px; color: rgba(244,243,255,.70)}
 
-    /* NUEVO: fotitos chiquitas adentro de reseñas */
     .quote .thumbRow{
       display:flex;
       gap: 8px;
@@ -464,7 +461,6 @@
     footer a{color: rgba(244,243,255,.88); text-decoration: underline; text-decoration-color: rgba(244,243,255,.25)}
     footer a:hover{text-decoration-color: rgba(244,243,255,.6)}
 
-    /* NUEVO: Sección libro prolija */
     .bookBox{
       margin-top: 14px;
       display:grid;
@@ -496,7 +492,6 @@
     }
     .bookActions{margin-top: 12px; display:flex; gap:10px; flex-wrap:wrap;}
 
-    /* NUEVO: Modal compra */
     .modalOverlay{
       position:fixed; inset:0;
       background: rgba(0,0,0,.55);
@@ -572,7 +567,6 @@
         background-repeat: no-repeat;
       }
       .logoImg{width:40px; height:40px; border-radius: 14px;}
-
       .bookBox{grid-template-columns: 1fr; }
       .bookCover{width: min(220px, 100%); margin: 0 auto;}
       .quote .thumb{width: 48px; height:48px;}
@@ -596,7 +590,6 @@
         <a class="chip" href="#como">Cómo funciona</a>
         <a class="chip" href="#testimonios">Testimonios</a>
         <a class="chip" href="#faq">Preguntas</a>
-        <a class="chip primary" href="#contacto">Reservar turno</a>
       </nav>
 
       <a class="chip primary" href="#contacto" aria-label="Reservar turno">Reservar turno</a>
@@ -744,7 +737,6 @@
         <div class="quote">
           <div class="thumbRow" aria-label="Reseñas (miniaturas)">
             <img class="thumb" src="https://iili.io/fyaZKqF.jpg" alt="Reseña (imagen)" loading="lazy" decoding="async" />
-            <img class="thumb" src="https://iili.io/fycFVA7.jpg" alt="Reseña (imagen)" loading="lazy" decoding="async" />
           </div>
           <p>“Me sirvió para tomar una decisión que venía pateando. Me quedé mucho más tranquila.”</p>
           <div class="who">— Consultante</div>
@@ -752,7 +744,6 @@
       </div>
     </section>
 
-    <!-- NUEVO: APARTADO PROLIJO DEL LIBRO + BOTÓN COMPRAR (modal) -->
     <section class="section" id="libro">
       <h2>Libro</h2>
       <p class="lead">Planeta K976</p>
@@ -762,7 +753,12 @@
 
         <div class="bookInfo">
           <h3>Planeta K976</h3>
-          <p>Disponible en distintas plataformas. Elegí la que te quede más cómoda.</p>
+          <p>
+            Una novela donde Kala despierta en un mundo desconocido: el planeta K976. Entre reglas nuevas, identidad secreta
+            y un peligro que crece, conoce a Alain y empieza a descubrir habilidades que tenía ocultas.
+            <br><br>
+            <b>María Julia Ugarte Malnis</b> es la autora del libro y creadora de esta página.
+          </p>
 
           <div class="bookActions">
             <button class="btn buy" id="btnComprar" type="button" aria-haspopup="dialog" aria-controls="buyModal">
@@ -850,7 +846,6 @@
     </a>
   </div>
 
-  <!-- NUEVO: MODAL COMPRA -->
   <div class="modalOverlay" id="buyModal" role="dialog" aria-modal="true" aria-label="Comprar el libro">
     <div class="modal">
       <div class="modalHeader">
@@ -921,7 +916,6 @@
       });
     });
 
-    // === NUEVO: links compra (los de hoy) ===
     const BUY_LINKS = {
       cuspide: "https://cuspide.com/producto/planeta-k976/",
       mercadolibre: "https://www.mercadolibre.com.ar/planeta-k976/up/MLAU241038353",
@@ -934,7 +928,6 @@
     document.getElementById("buyBuscalibre").href = BUY_LINKS.buscalibre;
     document.getElementById("buyBookdelivery").href = BUY_LINKS.bookdelivery;
 
-    // === NUEVO: modal open/close ===
     const modal = document.getElementById("buyModal");
     const openBtn = document.getElementById("btnComprar");
     const closeBtn = document.getElementById("buyClose");
