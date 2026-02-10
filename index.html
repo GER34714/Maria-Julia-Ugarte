@@ -438,6 +438,39 @@
     footer a{color: rgba(244,243,255,.88); text-decoration: underline; text-decoration-color: rgba(244,243,255,.25)}
     footer a:hover{text-decoration-color: rgba(244,243,255,.6)}
 
+    /* === NUEVO: Libro + Reseñas en imágenes === */
+    .bookWrap{
+      margin-top: 14px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .bookCover{
+      width: min(520px, 100%);
+      height: auto;
+      display:block;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(7,7,18,.10);
+      box-shadow: 0 26px 78px rgba(0,0,0,.48);
+      filter: drop-shadow(0 14px 40px rgba(155,123,255,.18));
+    }
+    .reviewGrid{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .reviewImg{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(7,7,18,.10);
+      box-shadow: 0 22px 60px rgba(0,0,0,.42);
+    }
+
     @media (max-width: 920px){
       .grid{grid-template-columns: 1fr}
       .cols{grid-template-columns: 1fr}
@@ -455,6 +488,7 @@
         background-repeat: no-repeat;
       }
       .logoImg{width:40px; height:40px; border-radius: 14px;}
+      .reviewGrid{grid-template-columns: 1fr;}
     }
   </style>
 </head>
@@ -573,6 +607,15 @@
       </div>
     </section>
 
+    <!-- NUEVO: SECCIÓN LIBRO (solo tapa) -->
+    <section class="section" id="libro">
+      <h2>Libro: Planeta K976</h2>
+      <p class="lead">Tapa del libro.</p>
+      <div class="bookWrap">
+        <img class="bookCover" src="https://iili.io/fyc5Yxf.jpg" alt="Tapa del libro Planeta K976" loading="lazy" decoding="async" />
+      </div>
+    </section>
+
     <section class="section" id="servicios">
       <h2>Servicios</h2>
       <p class="lead">Elegí el formato que más se ajuste a tu momento. Si no sabés cuál, me escribís y lo definimos en 2 mensajes.</p>
@@ -601,8 +644,17 @@
 
     <section class="section" id="testimonios">
       <h2>Testimonios</h2>
-      <p class="lead">Reemplazá estos textos por capturas o testimonios reales (si tenés).</p>
+      <p class="lead">Reseñas en imágenes.</p>
 
+      <!-- NUEVO: RESEÑAS EN IMÁGENES -->
+      <div class="reviewGrid" aria-label="Reseñas">
+        <img class="reviewImg" src="https://iili.io/fyaZf0g.jpg" alt="Reseña 1" loading="lazy" decoding="async" />
+        <img class="reviewImg" src="https://iili.io/fyaZ3s1.jpg" alt="Reseña 2" loading="lazy" decoding="async" />
+        <img class="reviewImg" src="https://iili.io/fyaZKqF.jpg" alt="Reseña 3" loading="lazy" decoding="async" />
+        <img class="reviewImg" src="https://iili.io/fycFVA7.jpg" alt="Reseña 4" loading="lazy" decoding="async" />
+      </div>
+
+      <!-- DEJO LOS TESTIMONIOS DE TEXTO TAL CUAL ESTABAN -->
       <div class="testis">
         <div class="quote"><p>“Me ayudó a ordenar la cabeza y volver a lo importante. Me quedé con un plan simple para seguir.”</p><div class="who">— Consultante</div></div>
         <div class="quote"><p>“Lo que más me gustó fue la claridad y el respeto. Sentí un espacio cuidado, sin vueltas.”</p><div class="who">— Consultante</div></div>
