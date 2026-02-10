@@ -76,6 +76,8 @@
       z-index:-2;
       transform: translateZ(0);
     }
+
+    /* SACAMOS EL DEGRADÉ LINEAL PARA ELIMINAR FRANJAS */
     body::after{
       content:"";
       position:fixed;
@@ -83,8 +85,7 @@
       background:
         radial-gradient(1000px 700px at 18% 14%, rgba(155,123,255,.22), transparent 62%),
         radial-gradient(900px 680px at 85% 26%, rgba(255,91,214,.18), transparent 65%),
-        radial-gradient(900px 760px at 50% 118%, rgba(49,208,170,.12), transparent 65%),
-        linear-gradient(180deg, rgba(7,7,18,.18), rgba(7,7,18,.42));
+        radial-gradient(900px 760px at 50% 118%, rgba(49,208,170,.12), transparent 65%);
       pointer-events:none;
       z-index:-1;
     }
@@ -95,7 +96,8 @@
     .topbar{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(7,7,18,.62), rgba(7,7,18,.26));
+      /* SACAMOS EL DEGRADÉ DEL HEADER PARA QUE NO APAREZCA FRANJA */
+      background: rgba(7,7,18,.56);
       border-bottom: 1px solid rgba(255,255,255,.10);
     }
     .topbar .inner{
@@ -260,6 +262,12 @@
     .btn.buy{
       background: linear-gradient(135deg, rgba(155,123,255,.34), rgba(255,91,214,.22));
       border-color: rgba(255,255,255,.22);
+    }
+
+    .btn.ghost{
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.16);
+      font-weight: 650;
     }
 
     .btnIcon{
@@ -545,6 +553,27 @@
       width:100%;
     }
 
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      z-index: 999;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(7,7,18,.66);
+      color: rgba(244,243,255,.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 16px 60px rgba(0,0,0,.52);
+      font-size: 12px;
+      display:none;
+      max-width: calc(100% - 24px);
+      text-align:center;
+    }
+    .toast.show{display:block;}
+
     @media (max-width: 920px){
       .grid{grid-template-columns: 1fr}
       .cols{grid-template-columns: 1fr}
@@ -786,13 +815,14 @@
           </div>
 
           <div class="sendRow">
+            <button class="btn ghost" id="copyMsg" type="button">Copiar mensaje</button>
             <a class="btn ig" id="sendIg" href="#" rel="noopener">
               <span class="btnIcon" aria-hidden="true"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="" /></span>
-              Enviar por Instagram
+              Abrir Instagram
             </a>
           </div>
 
-          <div class="hint">Tip: este formulario no “envía” mails: te abre Instagram para que la charla siga ahí.</div>
+          <div class="hint">Copiá el mensaje y al abrir Instagram, pegalo en el DM para reservar el turno.</div>
         </div>
 
         <div class="contactCard">
@@ -841,20 +871,65 @@
     </div>
   </div>
 
+  <div class="toast" id="toast">Mensaje copiado ✅</div>
+
   <script>
-    // DEMO: Instagram deriva a tu cuenta
-    const INSTAGRAM_USER = "ciborg347";
+    // Instagram real del cliente
+    const INSTAGRAM_USER = "juliamper8";
 
-    function instagramLink(){ return "https://instagram.com/" + INSTAGRAM_USER; }
+    // Link directo a Mensajes (abre el chat; IG no soporta texto pre-armado nativamente)
+    function instagramMessageLink(){ return "https://ig.me/m/" + INSTAGRAM_USER; }
 
-    const ig = instagramLink();
+    function buildIgMsg(){
+      const nombre = (document.getElementById("nombre")?.value || "").trim();
+      const motivo = (document.getElementById("motivo")?.value || "").trim();
+
+      let msg = "Hola Julia! 🙌 Quiero reservar un turno.\n";
+      if(nombre) msg += "\nNombre: " + nombre;
+      if(motivo) msg += "\nMotivo: " + motivo;
+      msg += "\n\nDisponibilidad: (poné días/horarios)\n\nGracias!";
+      return msg;
+    }
+
+    const ig = instagramMessageLink();
     document.getElementById("ctaIg").href = ig;
     document.getElementById("directIg").href = ig;
     document.getElementById("fabIg").href = ig;
+    document.getElementById("sendIg").href = ig;
 
-    document.getElementById("sendIg").addEventListener("click", function(e){
-      e.preventDefault();
-      window.open(ig, "_blank");
+    const toast = document.getElementById("toast");
+    let toastTimer = null;
+
+    function showToast(text){
+      if(!toast) return;
+      toast.textContent = text || "Listo ✅";
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(()=> toast.classList.remove("show"), 1800);
+    }
+
+    document.getElementById("copyMsg").addEventListener("click", async function(){
+      const msg = buildIgMsg();
+      try{
+        await navigator.clipboard.writeText(msg);
+        showToast("Mensaje copiado ✅");
+      }catch(err){
+        const ta = document.createElement("textarea");
+        ta.value = msg;
+        ta.style.position = "fixed";
+        ta.style.left = "-9999px";
+        ta.style.top = "-9999px";
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        try{
+          document.execCommand("copy");
+          showToast("Mensaje copiado ✅");
+        }catch(e){
+          showToast("No se pudo copiar 😅");
+        }
+        document.body.removeChild(ta);
+      }
     });
 
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
